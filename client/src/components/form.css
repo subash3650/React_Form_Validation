@@ -1,25 +1,23 @@
-/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
+    background-color: rgb(28, 25, 25);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    margin: 0;
+    margin: 100px;
   }
   
   h1 {
     text-align: center;
-    color: #333;
+    color: white;
     margin-bottom: 20px;
     font-size: 2rem;
   }
   
-  /* Form Styles */
   form {
-    background-color: #fff;
-    padding: 40px;
+    background-color: whitesmoke;
+    padding: 50px;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     width: 100%;
@@ -39,10 +37,10 @@ body {
   
   input:focus,
   select:focus {
-    border-color: #4CAF50;
+    border-color: blue;
     outline: none;
   }
-  
+
   button {
     width: 100%;
     padding: 12px 0;
@@ -69,14 +67,12 @@ body {
     background-color: #e53935;
   }
   
-  /* Error Messages */
   p {
     color: #f44336;
     font-size: 0.9rem;
-    margin: 5px 0;
+    margin: 3px 0;
   }
   
-  /* Message */
   p.message {
     color: #4CAF50;
     font-weight: bold;
