@@ -23,15 +23,15 @@ db.connect((err) => {
 });
 
 app.post("/emp", (req, res) => {
-    const { name, RollNumber, email, phoneNumber, department, dateOfJoining, role } = req.body;
+    const { name, employeeId, email, phoneNumber, department, dateOfJoining, role } = req.body;
 
-    if (!name || !RollNumber || !email || !phoneNumber || !department || !dateOfJoining || !role) {
+    if (!name || !employeeId || !email || !phoneNumber || !department || !dateOfJoining || !role) {
         return res.status(400).json({ message: "All fields are required!" });
     }
 
-    const query = "INSERT INTO employee (name, RollNumber, email, phoneNumber, department, dateOfJoining, role) VALUES(?,?,?,?,?,?,?)";
+    const query = "INSERT INTO employee (name, employeeId, email, phoneNumber, department, dateOfJoining, role) VALUES(?,?,?,?,?,?,?)";
 
-    db.query(query, [name, RollNumber, email, phoneNumber, department, dateOfJoining, role], (err, results) => {
+    db.query(query, [name, employeeId, email, phoneNumber, department, dateOfJoining, role], (err, results) => {
         if (err) {
             console.error("Error occurred while processing:", err);
             return res.status(500).json({ message: "Error occurred while processing the data", error: err });
