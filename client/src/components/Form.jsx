@@ -5,7 +5,7 @@ import "./form.css";
 function Form() {
   const [form, setForm] = useState({
     name: "",
-    employeeId: "",
+    RollNumber: "",
     email: "",
     phoneNumber: "",
     department: "",
@@ -23,13 +23,13 @@ function Form() {
 
   const validate = (formData) => {
     let tempErrors = {};
-    if (!formData.name) {
+    if (!formData.name || !/^[a-zA-Z\s]+$/.test(form.name)){
       tempErrors.name = "Name is required.";
     }
-    if (!formData.employeeId || formData.employeeId.length > 10) {
-      tempErrors.employeeId = "Valid Employee ID is required.";
+    if (!formData.RollNumber || formData.RollNumber.length > 10) {
+      tempErrors.RollNumber = "Valid Employee ID is required.";
     }
-    if (!/\S+@\S+\.\S+/.test(formData.email)) {
+    if (!/\S+@\S+\.\S+/.test(formData.email) ) {
       tempErrors.email = "Valid Email is required.";
     }
     if (!/^\d{10}$/.test(formData.phoneNumber)) {
@@ -57,14 +57,15 @@ function Form() {
       alert(res.data.message);
       setForm({
         name: "",
-        employeeId: "",
+        RollNumber: "",
         email: "",
         phoneNumber: "",
         department: "",
         dateOfJoining: "",
         role: "",
       });
-    } catch (err) {
+    }
+    catch (err) {
       const errorMessage = err.response?.data?.message || "Submission failed!";
       alert(errorMessage);
     }
@@ -83,12 +84,12 @@ function Form() {
         {errors.name && <p className="error">{errors.name}</p>}
 
         <input
-          name="employeeId"
-          value={form.employeeId}
+          name="Roll Number"
+          value={form.RollNumber}
           onChange={handleChange}
-          placeholder="Employee ID"
+          placeholder="Roll Number"
         />
-        {errors.employeeId && <p className="error">{errors.employeeId}</p>}
+        {errors.RollNumber && <p className="error">{errors.RollNumber}</p>}
 
         <input
           name="email"
